@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema Financeiro</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>Sistema Financeiro</h1>
+      <p class="subtitle">Controle de contas e lançamentos</p>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Cadastrar conta</h2>
+        <form id="form-conta">
+          <label for="conta-nome">Nome da conta</label>
+          <input type="text" id="conta-nome" required placeholder="Ex: Caixa principal" />
+
+          <label for="conta-saldo-inicial">Saldo inicial</label>
+          <input type="text" id="conta-saldo-inicial" placeholder="Ex: 0" />
+
+          <button type="submit">Cadastrar conta</button>
+        </form>
+        <div id="conta-feedback" class="feedback"></div>
+      </section>
+
+      <section class="card">
+        <h2>Novo lançamento</h2>
+        <form id="form-lancamento">
+          <label for="lancamento-conta">Conta</label>
+          <select id="lancamento-conta" required></select>
+
+          <label for="lancamento-descricao">Descrição</label>
+          <input type="text" id="lancamento-descricao" required placeholder="Ex: Venda de produto" />
+
+          <label for="lancamento-valor">Valor</label>
+          <input type="text" id="lancamento-valor" required placeholder="Ex: 150,50" />
+
+          <label for="lancamento-tipo">Tipo</label>
+          <select id="lancamento-tipo" required>
+            <option value="RECEITA">Receita</option>
+            <option value="DESPESA">Despesa</option>
+          </select>
+
+          <label for="lancamento-data">Data</label>
+          <input type="date" id="lancamento-data" required />
+
+          <button type="submit">Registrar lançamento</button>
+        </form>
+        <div id="lancamento-feedback" class="feedback"></div>
+      </section>
+
+      <section class="card card-wide">
+        <div class="card-header-row">
+          <h2>Lançamentos</h2>
+          <div class="saldo" id="saldo-display">Selecione uma conta para ver o saldo</div>
+        </div>
+        <table id="tabela-lancamentos">
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Descrição</th>
+              <th>Tipo</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
