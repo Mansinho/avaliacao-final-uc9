@@ -10,7 +10,10 @@ function cadastrarConta({ nome, saldoInicial }) {
 
   let saldo = 0;
   if (saldoInicial !== undefined && saldoInicial !== null) {
-    saldo = Number(saldoInicial);
+    // Ajuste rápido para aceitar vírgula decimal no saldo inicial
+    // (ex: "150,50"). Assume-se que o valor sempre chega como string.
+    const saldoNormalizado = saldoInicial.replace(",", ".");
+    saldo = Number(saldoNormalizado);
     if (Number.isNaN(saldo)) {
       throw new ErroValidacao("Saldo inicial inválido.", "saldoInicial");
     }
