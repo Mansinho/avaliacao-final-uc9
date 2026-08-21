@@ -1,0 +1,17 @@
+{
+  "name": "sistema-financeiro-backend",
+  "version": "1.0.0",
+  "description": "API de controle de contas e lançamentos financeiros",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test tests/"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "uuid": "^9.0.1"
+  }
+}
